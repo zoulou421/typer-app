@@ -1,14 +1,25 @@
 import typer
 
 
-def my_app(delete: bool = typer.Option(..., help="Delete files found"),
+def my_app(delete: bool = typer.Option(False, help="Delete files found"),
            extension: str = typer.Argument("txt", help="extension to search")):
     """
      Show Files with  data extension file
     """
     typer.echo(f"Re-search file with extension {extension}")
-    print(delete)
+    # print(delete)
+
+    # same like input of python
+    # extension = typer.prompt("which extension are you gonna wish ?")
+    # print(extension)
+    if delete:
+        # confirm = typer.confirm("Do you really wanna delete files ?", abort=True)
+        typer.confirm("Do you really wanna delete files ?", abort=True)
+        '''if not confirm:
+            typer.echo("Operation cancelled...")
+            raise typer.Abort()'''
+        print("Files deletion...")
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  # python my_app.py --delete
     typer.run(my_app)
