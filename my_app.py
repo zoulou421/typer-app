@@ -1,5 +1,7 @@
 import typer
 
+app = typer.Typer()
+
 
 def my_app(delete: bool = typer.Option(False, help="Delete files found"),
            extension: str = typer.Argument("txt", help="extension to search")):
@@ -21,5 +23,18 @@ def my_app(delete: bool = typer.Option(False, help="Delete files found"),
         print("Files deletion...")
 
 
+@app.command()
+def search_py():
+    pass
+
+
+@app.command()
+def delete_py():
+    pass
+
+
+# python my_app.py --help
+
 if __name__ == '__main__':  # python my_app.py --delete
-    typer.run(my_app)
+    # typer.run(my_app)
+    app()
