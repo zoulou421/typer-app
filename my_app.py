@@ -10,27 +10,29 @@ def my_app(delete: bool = typer.Option(False, help="Delete files found"),
     """
     typer.echo(f"Re-search file with extension {extension}")
     # print(delete)
+    if delete:
+        typer.echo("Files deletion with command")
 
     # same like input of python
     # extension = typer.prompt("which extension are you gonna wish ?")
     # print(extension)
-    if delete:
-        # confirm = typer.confirm("Do you really wanna delete files ?", abort=True)
-        typer.confirm("Do you really wanna delete files ?", abort=True)
-        '''if not confirm:
+    # if delete:
+    # confirm = typer.confirm("Do you really wanna delete files ?", abort=True)
+    #    typer.confirm("Do you really wanna delete files ?", abort=True)
+    '''if not confirm:
             typer.echo("Operation cancelled...")
             raise typer.Abort()'''
-        print("Files deletion...")
+    #    print("Files deletion...")
 
 
-@app.command()
+@app.command("search")  # rename function with search
 def search_py():
-    pass
+    my_app(delete=False, extension="py")
 
 
-@app.command()
+@app.command("delete")
 def delete_py():
-    pass
+    my_app(delete=True, extension="py")
 
 
 # python my_app.py --help
