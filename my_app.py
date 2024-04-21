@@ -1,11 +1,11 @@
 import typer
 
 
-def my_app():
+def my_app(extension: str = typer.Argument("txt",help="extension to search")):
     """
-     File with extension file
+     Show Files with  data extension file
     """
-    typer.echo("Re-search file with extension")
+    typer.echo(f"Re-search file with extension {extension}")
 
 
 if __name__ == '__main__':
