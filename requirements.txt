@@ -1,0 +1,11 @@
+#python3.12 -m pip install typer
+#On Windows
+
+#py -3.12 -m pip Install Typer
+#py -3.12 -m pip Install Typer
+
+#on windows if not installed:
+#pip install colorama
+typer~=0.12.3
+colorama~=0.4.6
+termcolor~=2.4.0
